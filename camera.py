@@ -10,10 +10,11 @@ from mqtt_base import MQTTBase, logIt
 @gen.coroutine
 def main():
 
-    mqtt_topic = 'mqtt_topic'
     topic_prefix = config.get(mqtt_config, 'topic_prefix')
-    instance_id = config.get(mqtt_topic, 'id')
-    instance_name = config.get(mqtt_topic, 'name')
+
+    instance_section = 'instance'
+    instance_id = int(config.get(instance_section, 'id'))
+    instance_name = config.get(instance_section, 'name')
 
     yield gen.sleep(2.0)
 
